@@ -22,7 +22,7 @@
             <div class="mb-4">
                 <fieldset class="row">
                     <legend>Notas</legend>
-                    <div class="container">
+                    <div class="container notas">
                         <label class="col-lg-1 col-form-label m-1" for="nota1">Nota 1:
                             <input class="form-control nota" id="nota1" type="number" max="10" step="0.05">
                         </label>
@@ -35,7 +35,7 @@
                         <label class="col-lg-1 col-form-label m-1" for="nota4">Nota 4:
                             <input class="form-control nota" id="nota4" type="number" max="10" step="0.05">
                         </label>
-                        <button class="col-auto btn btn-primary btn-lg" id="botaoCalc">Calcular</button>
+                        <input type="button" class="col-auto btn btn-primary btn-lg" id="botaoCalc" Value="Calcular"></input>
                     </div>
                 </fieldset>
             </div>
@@ -72,8 +72,8 @@
             }
         }
 
-        const $botaoCalc = select.el('#botaoCalc');
-        $botaoCalc.addEventListener('click', calculaMedia);
+        select.el('#botaoCalc').onclick = calculaMedia;
+        select.el('.notas').onkeydown = teclasAtalho;
 
         function pegaNotas(){
             return select.els('.nota');
@@ -131,6 +131,13 @@
             notas.forEach((nota) => {
                 nota.value = '';            
             });
+        }
+
+        function teclasAtalho(event) {
+            const tecla = event.key;
+            if(tecla === 'Enter') {
+                calculaMedia();
+            }
         }
 
     })();
