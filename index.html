@@ -90,7 +90,7 @@
         function arredondaDecimal(media) {
             const inteiro = Math.trunc(media);
             const decimal = media - Math.trunc(media);
-            if(decimal.toFixed(2) <= 0.24 || decimal.toFixed(2) >= 0.75) {
+            if(decimal.toFixed(2) <= 0.29 || decimal.toFixed(2) >= 0.70) {
                 return Math.round(media);
             } else {
                 return inteiro + 0.5;
